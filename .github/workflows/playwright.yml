@@ -1,0 +1,50 @@
+name: 🕘 Daily Smoke Tests
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  smoke-tests:
+    name: Run Playwright Smoke Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🌐 Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: 🧪 Run smoke tests
+        run: npx playwright test
+        continue-on-error: true
+
+      - name: 📊 Upload test report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ github.run_number }}
+          path: report/
+          retention-days: 30
+
+      - name: 📝 Write job summary
+        if: always()
+        run: |
+          echo "## 🧪 Smoke Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "| Detail | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Site tested | https://books.toscrape.com |" >> $GITHUB_STEP_SUMMARY
+          echo "| Run number  | ${{ github.run_number }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Triggered   | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Timestamp   | $(date -u '+%Y-%m-%d %H:%M UTC') |" >> $GITHUB_STEP_SUMMARY
