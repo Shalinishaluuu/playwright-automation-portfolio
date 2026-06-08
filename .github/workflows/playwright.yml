@@ -11,26 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🌐 Install Playwright browsers
+      - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name: 🧪 Run smoke tests
+      - name:  Run smoke tests
         run: npx playwright test
         continue-on-error: true
 
-      - name: 📊 Upload test report
+      - name: Upload test report
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -38,10 +38,10 @@ jobs:
           path: report/
           retention-days: 30
 
-      - name: 📝 Write job summary
+      - name:  Write job summary
         if: always()
         run: |
-          echo "## 🧪 Smoke Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "##  Smoke Test Results" >> $GITHUB_STEP_SUMMARY
           echo "| Detail | Value |" >> $GITHUB_STEP_SUMMARY
           echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
           echo "| Site tested | https://books.toscrape.com |" >> $GITHUB_STEP_SUMMARY
