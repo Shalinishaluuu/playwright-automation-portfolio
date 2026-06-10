@@ -1,9 +1,9 @@
-name: 🕘 Daily Smoke Tests
+name: Weekly Smoke Tests
 
 on:
   schedule:
-    - cron: '0 9 * * *'
-  workflow_dispatch:
+    - cron: '0 9 * * 1'   # Every Monday at 9:00 AM UTC
+  workflow_dispatch:       # Allow manual trigger from GitHub UI
 
 jobs:
   smoke-tests:
@@ -26,7 +26,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name:  Run smoke tests
+      - name: Run smoke tests
+        id: run_tests
         run: npx playwright test
         continue-on-error: true
 
@@ -35,16 +36,79 @@ jobs:
         if: always()
         with:
           name: playwright-report-${{ github.run_number }}
-          path: report/
+          path: playwright-report/
           retention-days: 30
 
-      - name:  Write job summary
+      - name: Write job summary
         if: always()
         run: |
-          echo "##  Smoke Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "## Smoke Test Results" >> $GITHUB_STEP_SUMMARY
           echo "| Detail | Value |" >> $GITHUB_STEP_SUMMARY
           echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Site tested | https://books.toscrape.com |" >> $GITHUB_STEP_SUMMARY
+          echo "| Site tested | https://devadminbwt.netlify.app |" >> $GITHUB_STEP_SUMMARY
           echo "| Run number  | ${{ github.run_number }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Triggered   | ${{ github.event_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Status      | ${{ steps.run_tests.outcome }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Timestamp   | $(date -u '+%Y-%m-%d %H:%M UTC') |" >> $GITHUB_STEP_SUMMARY
+
+      # ── Email on SUCCESS ───────────────────────────────────────────────────
+      - name: Send success email
+        if: steps.run_tests.outcome == 'success'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ secrets.NOTIFY_EMAIL }}
+          from: BWT CI <${{ secrets.MAIL_USERNAME }}>
+          subject: "✅ Smoke Tests PASSED — Run #${{ github.run_number }}"
+          body: |
+            Hello,
+
+            The weekly Playwright smoke tests passed successfully.
+
+            ─────────────────────────────────
+            Site      : https://devadminbwt.netlify.app
+            Run #     : ${{ github.run_number }}
+            Triggered : ${{ github.event_name }}
+            Time      : ${{ github.event.head_commit.timestamp }}
+            ─────────────────────────────────
+
+            View full report:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Regards,
+            BWT CI Bot
+
+      # ── Email on FAILURE ───────────────────────────────────────────────────
+      - name: Send failure email
+        if: steps.run_tests.outcome == 'failure'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ secrets.NOTIFY_EMAIL }}
+          from: BWT CI <${{ secrets.MAIL_USERNAME }>>
+          subject: "❌ Smoke Tests FAILED — Run #${{ github.run_number }}"
+          body: |
+            Hello,
+
+            The weekly Playwright smoke tests FAILED. Please investigate.
+
+            ─────────────────────────────────
+            Site      : https://devadminbwt.netlify.app
+            Run #     : ${{ github.run_number }}
+            Triggered : ${{ github.event_name }}
+            Time      : ${{ github.event.head_commit.timestamp }}
+            ─────────────────────────────────
+
+            View logs and report:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Regards,
+            BWT CI Bot

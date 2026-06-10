@@ -66,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "example.spec.js",
-      "file": "example.spec.js",
+      "title": "dashboard.spec.js",
+      "file": "dashboard.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "homepage loads successfully",
+          "title": "show summary cards",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,16 +87,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 10525,
+                  "duration": 11355,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "✅ Homepage loaded\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:17:31.910Z",
+                  "startTime": "2026-06-09T07:12:43.376Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -104,14 +100,14 @@
               "status": "expected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-4cbd0d77aa8ac55c3862",
-          "file": "example.spec.js",
-          "line": 11,
+          "id": "a1bb41a2bd6df77ed2f7-6cdbe59cbd6c40bb9a18",
+          "file": "dashboard.spec.js",
+          "line": 16,
           "column": 1
         },
         {
-          "title": "navigation sidebar is visible",
-          "ok": true,
+          "title": "switch to Permission Requests tab",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -124,32 +120,121 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 4179,
-                  "errors": [],
-                  "stdout": [
+                  "status": "failed",
+                  "duration": 12080,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:28:47",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 47,
+                      "line": 28
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 26 |\u001b[39m test(\u001b[32m'switch to Permission Requests tab'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
                     {
-                      "text": "✅ Navigation sidebar is present\n"
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 47,
+                        "line": 28
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n\n\n\u001b[0m \u001b[90m 26 |\u001b[39m test(\u001b[32m'switch to Permission Requests tab'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:28:47\u001b[22m"
                     }
                   ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:17:52.764Z",
+                  "startTime": "2026-06-09T07:12:55.068Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 47,
+                    "line": 28
+                  }
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14455,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:28:47",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 47,
+                      "line": 28
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 26 |\u001b[39m test(\u001b[32m'switch to Permission Requests tab'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 47,
+                        "line": 28
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: getByText('Permission Requests') resolved to 2 elements:\n    1) <p class=\"text-xs flex gap-x-1.5 text-gray-500 mt-1\">…</p> aka getByText('13permission requests need')\n    2) <span>Permission Requests</span> aka getByRole('tab', { name: 'Permission Requests' })\n\nCall log:\n\u001b[2m  - waiting for getByText('Permission Requests')\u001b[22m\n\n\n\u001b[0m \u001b[90m 26 |\u001b[39m test(\u001b[32m'switch to Permission Requests tab'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Permission Requests'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:28:47\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-06-09T07:13:08.711Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium-retry1\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-switch-to-Permission-Requests-tab-chromium-retry1\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 47,
+                    "line": 28
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-b28da1059add7bb15754",
-          "file": "example.spec.js",
-          "line": 24,
+          "id": "a1bb41a2bd6df77ed2f7-8ada17337ae0ff95e1d5",
+          "file": "dashboard.spec.js",
+          "line": 26,
           "column": 1
         },
         {
-          "title": "books are displayed on homepage",
-          "ok": true,
+          "title": "filter dropdown has All, Pending, Approved, Rejected",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -160,33 +245,122 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 2,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3575,
-                  "errors": [],
-                  "stdout": [
+                  "status": "failed",
+                  "duration": 8972,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:37:43",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 43,
+                      "line": 37
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 35 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'All'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Pending'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Approved'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
                     {
-                      "text": "✅ Found 20 books on homepage\n"
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 43,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n\n\n\u001b[0m \u001b[90m 35 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'All'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Pending'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Approved'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:37:43\u001b[22m"
                     }
                   ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:17:56.959Z",
+                  "startTime": "2026-06-09T07:13:25.175Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 43,
+                    "line": 37
+                  }
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11862,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:37:43",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 43,
+                      "line": 37
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 35 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'All'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Pending'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Approved'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 43,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Pending')\nExpected: visible\nError: strict mode violation: getByText('Pending') resolved to 5 elements:\n    1) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Leaves to Approve</div> aka getByText('Pending Leaves to Approve')\n    2) <div data-slot=\"card-title\" class=\"text-sm font-medium\">Pending Permissions to Approve</div> aka getByText('Pending Permissions to Approve')\n    3) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(2)\n    4) <span data-slot=\"badge\" class=\"inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-auto [a&]:hover:bg-accent [a&]:hover:text-accent-foreground bg-yellow-100 text-ye…>Pending</span> aka getByText('Pending').nth(3)\n    5) <span id=\"radix-_r_t_\">Pending</span> aka getByLabel('Pending').getByText('Pending')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Pending')\u001b[22m\n\n\n\u001b[0m \u001b[90m 35 |\u001b[39m   \u001b[36mawait\u001b[39m login(page)\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m'All'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Pending'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Approved'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:37:43\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-06-09T07:13:35.985Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium-retry1\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-filter-dropdown-has-All-Pending-Approved-Rejected-chromium-retry1\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 43,
+                    "line": 37
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-e62a93d7ed23392bc8d1",
-          "file": "example.spec.js",
-          "line": 38,
+          "id": "a1bb41a2bd6df77ed2f7-5d63b5862967b21fb9de",
+          "file": "dashboard.spec.js",
+          "line": 34,
           "column": 1
         },
         {
-          "title": "clicking a book opens its detail page",
+          "title": "filter by Pending shows only pending rows",
           "ok": true,
           "tags": [],
           "tests": [
@@ -198,19 +372,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4470,
+                  "duration": 17041,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "✅ Detail page opened for: \"A Light in the Attic\"\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:18:00.548Z",
+                  "startTime": "2026-06-09T07:13:49.690Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -218,13 +388,13 @@
               "status": "expected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-1d03e4d4f7bb8df54b68",
-          "file": "example.spec.js",
-          "line": 52,
+          "id": "a1bb41a2bd6df77ed2f7-7de9fbad12e730ae5007",
+          "file": "dashboard.spec.js",
+          "line": 42,
           "column": 1
         },
         {
-          "title": "filtering by category shows relevant books",
+          "title": "filter by Approved shows only approved rows",
           "ok": true,
           "tags": [],
           "tests": [
@@ -236,19 +406,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4111,
+                  "duration": 22305,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "✅ Category filter works correctly\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:18:05.032Z",
+                  "startTime": "2026-06-09T07:14:07.061Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -256,13 +422,13 @@
               "status": "expected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-9b61314b67a308ce6bc5",
-          "file": "example.spec.js",
-          "line": 70,
+          "id": "a1bb41a2bd6df77ed2f7-ead20579099246ba2493",
+          "file": "dashboard.spec.js",
+          "line": 53,
           "column": 1
         },
         {
-          "title": "next page navigation works",
+          "title": "search by employee name filters rows",
           "ok": true,
           "tags": [],
           "tests": [
@@ -274,19 +440,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4377,
+                  "duration": 27787,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "✅ Pagination works — navigated to page 2\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:18:09.156Z",
+                  "startTime": "2026-06-09T07:14:29.448Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -294,13 +456,13 @@
               "status": "expected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-ab7f1b90cadf33b1fb18",
-          "file": "example.spec.js",
-          "line": 87,
+          "id": "a1bb41a2bd6df77ed2f7-cd25448b174dd19a5bca",
+          "file": "dashboard.spec.js",
+          "line": 66,
           "column": 1
         },
         {
-          "title": "invalid URL shows error or redirects gracefully",
+          "title": "pending row shows Approve and Reject buttons",
           "ok": true,
           "tags": [],
           "tests": [
@@ -312,19 +474,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2537,
+                  "duration": 13335,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "✅ 404 / error page handled gracefully\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-06-08T10:18:13.545Z",
+                  "startTime": "2026-06-09T07:14:57.304Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -332,9 +490,281 @@
               "status": "expected"
             }
           ],
-          "id": "dd9b2edffe9b7501040c-28867671c09050aa67ea",
-          "file": "example.spec.js",
-          "line": 105,
+          "id": "a1bb41a2bd6df77ed2f7-d8c48efab739f3de4c69",
+          "file": "dashboard.spec.js",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "approve a pending request",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30318,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 43,
+                        "line": 85
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Approved')\nExpected: visible\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Approved')\u001b[22m\n\n\n\u001b[0m \u001b[90m 83 |\u001b[39m   \u001b[36mconst\u001b[39m row \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'tbody tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'Pending'\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 84 |\u001b[39m   \u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Approve'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 85 |\u001b[39m   \u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Approved'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 86 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 87 |\u001b[39m\n \u001b[90m 88 |\u001b[39m test(\u001b[32m'reject a pending request'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:85:43\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-06-09T07:15:10.689Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium\\error-context.md"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30353,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 14,
+                        "line": 12
+                      },
+                      "message": "Error: page.waitForLoadState: Test timeout of 30000ms exceeded.\n\n\u001b[0m \u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'//input[@type=\"password\"]'\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[33mPASSWORD\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForLoadState(\u001b[32m'networkidle'\u001b[39m)\u001b[33m;\u001b[39m  \u001b[90m// \u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m }\n \u001b[90m 14 |\u001b[39m \u001b[90m// ── Cards ─────────────────────────────────────────────────────────────────────\u001b[39m\n \u001b[90m 15 |\u001b[39m\u001b[0m\n\u001b[2m    at login (D:\\task\\tests\\dashboard.spec.js:12:14)\u001b[22m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:82:3\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-06-09T07:15:42.528Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium-retry1\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-approve-a-pending-request-chromium-retry1\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a1bb41a2bd6df77ed2f7-669b7050e15f2988ec36",
+          "file": "dashboard.spec.js",
+          "line": 81,
+          "column": 1
+        },
+        {
+          "title": "reject a pending request",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20469,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:92:43",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 43,
+                      "line": 92
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 90 |\u001b[39m   \u001b[36mconst\u001b[39m row \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'tbody tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'Pending'\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m   \u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Reject'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m   \u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m\n \u001b[90m 95 |\u001b[39m \u001b[90m// ── Download ──────────────────────────────────────────────────────────────────\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 43,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n\n\n\u001b[0m \u001b[90m 90 |\u001b[39m   \u001b[36mconst\u001b[39m row \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'tbody tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'Pending'\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m   \u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Reject'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m   \u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m\n \u001b[90m 95 |\u001b[39m \u001b[90m// ── Download ──────────────────────────────────────────────────────────────────\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:92:43\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-06-09T07:16:14.793Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 43,
+                    "line": 92
+                  }
+                },
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 28011,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n\n    at D:\\task\\tests\\dashboard.spec.js:92:43",
+                    "location": {
+                      "file": "D:\\task\\tests\\dashboard.spec.js",
+                      "column": 43,
+                      "line": 92
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 90 |\u001b[39m   \u001b[36mconst\u001b[39m row \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'tbody tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'Pending'\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m   \u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Reject'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m   \u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m\n \u001b[90m 95 |\u001b[39m \u001b[90m// ── Download ──────────────────────────────────────────────────────────────────\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\task\\tests\\dashboard.spec.js",
+                        "column": 43,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody tr').filter({ hasText: 'Pending' }).first().getByText('Rejected')\u001b[22m\n\n\n\u001b[0m \u001b[90m 90 |\u001b[39m   \u001b[36mconst\u001b[39m row \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'tbody tr'\u001b[39m)\u001b[33m.\u001b[39mfilter({ hasText\u001b[33m:\u001b[39m \u001b[32m'Pending'\u001b[39m })\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m   \u001b[36mawait\u001b[39m row\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Reject'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m   \u001b[36mawait\u001b[39m expect(row\u001b[33m.\u001b[39mgetByText(\u001b[32m'Rejected'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m\n \u001b[90m 95 |\u001b[39m \u001b[90m// ── Download ──────────────────────────────────────────────────────────────────\u001b[39m\u001b[0m\n\u001b[2m    at D:\\task\\tests\\dashboard.spec.js:92:43\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-06-09T07:16:37.106Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium-retry1\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\task\\test-results\\dashboard-reject-a-pending-request-chromium-retry1\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\task\\tests\\dashboard.spec.js",
+                    "column": 43,
+                    "line": 92
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a1bb41a2bd6df77ed2f7-badc5168546c05f7d377",
+          "file": "dashboard.spec.js",
+          "line": 88,
+          "column": 1
+        },
+        {
+          "title": "download report button triggers file download",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-06-09T07:17:07.000Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1bb41a2bd6df77ed2f7-39084877b12f93caabcd",
+          "file": "dashboard.spec.js",
+          "line": 97,
           "column": 1
         }
       ]
@@ -342,11 +772,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-08T10:17:31.287Z",
-    "duration": 44899.378000000004,
-    "expected": 7,
+    "startTime": "2026-06-09T07:12:42.046Z",
+    "duration": 283489.259,
+    "expected": 6,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 4,
     "flaky": 0
   }
 }
